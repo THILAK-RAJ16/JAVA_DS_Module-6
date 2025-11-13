@@ -20,7 +20,7 @@ Program To determine the minimum value (e.g., lowest heartbeat), implement a rec
 ```java
 import java.util.Scanner;
 
-public class MinimumHeartbeat {
+public class Main {
     static int findMin(int arr[], int n) {
         if (n == 1)
             return arr[0];
