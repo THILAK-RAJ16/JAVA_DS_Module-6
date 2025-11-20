@@ -1,92 +1,83 @@
 # Ex4 You are given a Java program that performs matrix addition. If Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension, what will be the nature (even/odd/mixed) of the resulting matrix?
-## DATE: 13/11/2025
+## DATE: 15/9/2025
 ## AIM:
-To write a java function to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrix.
+To write a java function to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrrix.
 
 ## Algorithm
-```text
-1. Start
-2. Read the number of rows and columns
-3. Read Matrix A and Matrix B
-4. Check whether all elements of Matrix A are odd
-5. Check whether all elements of Matrix B are even
-6. If both conditions are true, add both matrices element-wise
-7. For each element of the resultant matrix:
-   If all elements are odd → Result is ODD
-   If all elements are even → Result is EVEN
-   Otherwise → Result is MIXED
-8. Display the nature of the resultant matrix
-9. End
-```
+1.Start the program.
+
+2.Read the dimensions of both matrices (rows and columns). Check whether Matrix A and Matrix B have the same dimensions. If not, display “Matrices are not of same dimension” and stop.
+
+3.Read Matrix A and check each element: If every element is odd, continue.
+
+4.If any element is even, mark A as invalid and stop further checking.
+
+5.Read Matrix A and check each element: If every element is odd, continue.
+
+6.If any element is even, mark A as invalid and stop further checking.
+
+7.If both matrices are valid, compute the resultant matrix (e.g., A + B or any operation specified). Determine the nature of the resultant matrix:
+
+8.If all elements are odd, print “Resultant matrix is an Odd Matrix”.
+
+9.If all elements are even, print “Resultant matrix is an Even Matrix”. Otherwise, print “Resultant matrix is a Mixed Matrix”.
+
+10.Display the Resultant Matrix.
+
+11.Stop the program.  
+
 ## Program:
+```
+/*
 Program to ind the nature of resultant matrrix.
-```java
+Developed by: THILAK RAJ . P
+RegisterNumber:  212224040353
+*/
+
 import java.util.Scanner;
 
-public class Main {
-    static boolean isAllOdd(int[][] A, int rows, int cols) {
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++)
-                if (A[i][j] % 2 == 0)
-                    return false;
-        return true;
-    }
-
-    static boolean isAllEven(int[][] B, int rows, int cols) {
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++)
-                if (B[i][j] % 2 != 0)
-                    return false;
-        return true;
-    }
-
-    static String findMatrixNature(int[][] A, int[][] B, int rows, int cols) {
-        int[][] C = new int[rows][cols];
-        boolean allEven = true, allOdd = true;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                C[i][j] = A[i][j] + B[i][j];
-                if (C[i][j] % 2 == 0)
-                    allOdd = false;
-                else
-                    allEven = false;
-            }
-        }
-        if (allOdd)
-            return "Resultant matrix is ODD";
-        else if (allEven)
-            return "Resultant matrix is EVEN";
-        else
-            return "Resultant matrix is MIXED";
-    }
-
+public class MatrixAddition {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int rows = sc.nextInt();
         int cols = sc.nextInt();
+
         int[][] A = new int[rows][cols];
         int[][] B = new int[rows][cols];
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++)
+        int[][] result = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 A[i][j] = sc.nextInt();
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++)
+            }
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 B[i][j] = sc.nextInt();
-        if (isAllOdd(A, rows, cols) && isAllEven(B, rows, cols))
-            System.out.println(findMatrixNature(A, B, rows, cols));
-        else
-            System.out.println("Matrix A or B does not meet the condition");
-        sc.close();
+            }
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = A[i][j] + B[i][j];
+            }
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+       
     }
 }
 ```
-Developed by: Thilak Raj . P
-
-RegisterNumber:  212224040353
 
 ## Output:
 
-<img width="448" height="392" alt="image" src="https://github.com/user-attachments/assets/f38a15f8-44e8-4017-b34e-1dc65767a82f" />
+<img width="422" height="624" alt="513805485-f2acdaf8-1bf9-4fba-af82-b724d681291b" src="https://github.com/user-attachments/assets/20647936-6e87-485b-b524-7472f7dddb1e" />
+
 
 ## Result:
 Thus, the java program to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrrix is implemented successfully.
