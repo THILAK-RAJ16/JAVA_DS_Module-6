@@ -1,49 +1,58 @@
 # EX3 Write a program to count the number of digits in an integer.
-## DATE: 13/11/2025
+## DATE: 15/9/2025
 ## AIM:
-To write a program to count the number of digits in an integer.
+To write a C program to implement Tower of Hanoi
 
 ## Algorithm
-```text
-1. Start
-2. Read an integer n
-3. Define a recursive function countDigits(n)
-   If n == 0, return 0
-   Else, return 1 + countDigits(n / 10)
-4. If the number is 0, print 1 (since it has one digit)
-5. Otherwise, call countDigits(n) and display the result
-6. End
-```
+1.Start the program.
 
+2.Read an integer from the user.
+
+3.Define a recursive function countDigits() that counts digits by dividing the number by 10 each time.
+
+4.Base condition: if the number is 0, return 0.
+
+5.Recursive step: return 1 + countDigits(number / 10).
+
+6.Display the total count of digits. 7.Stop the program.
 ## Program:
+```
+/*
 Program to to count the number of digits in an integer
-```java
+Developed by: THILAK RAJ . P
+RegisterNumber:  212224040353
+*/
 import java.util.Scanner;
 
-public class Main {
-    static int countDigits(int n) {
-        if (n == 0)
-            return 0;
-        return 1 + countDigits(n / 10);
-    }
-
+public class CountDigits {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        if (n == 0)
-            System.out.println(1);
-        else
-            System.out.println(countDigits(Math.abs(n)));
+        
+     
+        int num = sc.nextInt();
+        
+        int count = 0;
+        int n = Math.abs(num); 
+        
+        
+        if (n == 0) {
+            count = 1;
+        } else {
+            while (n > 0) {
+                n = n / 10;  
+                count++;
+            }
+        }
+        
+        System.out.println("Number of digits: " + count);
+
         sc.close();
     }
 }
 ```
-Developed by: Thilak Raj . P
-
-RegisterNumber:  212224040353
 
 ## Output:
-<img width="402" height="364" alt="image" src="https://github.com/user-attachments/assets/abe54e89-2f14-404d-b659-50e39fe58684" />
+<img width="601" height="242" alt="513812838-132a7a2a-95ea-4d65-a908-0268fc16eb32" src="https://github.com/user-attachments/assets/985e5a15-25a8-45fb-b120-08a80a43a1ae" />
 
 
 
